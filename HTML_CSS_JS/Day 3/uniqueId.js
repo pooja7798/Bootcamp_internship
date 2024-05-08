@@ -5,7 +5,7 @@
 import { faker } from 'https://esm.sh/@faker-js/faker';
 
 // Function to generate a unique id for each expense
-const generateUniqueId = (config = {}) => {
+const UniqueId = (config = {}) => {
   const { prefix } = config;
   if (prefix) {
     return prefix + "-" + Math.random().toString(36).substring(2);
@@ -19,7 +19,7 @@ const generateRandomExpenses = (numExpenses) => {
 
   for (let i = 0; i < numExpenses; i++) {
     const expense = {
-      id: generateUniqueId({ prefix: "exp" }),
+      id: UniqueId({ prefix: "exp" }),
       category: faker.helpers.arrayElement(["Food","Travel","EMI","Bills","Medical Expense","Grocery",]),//A particularly helpful method is arrayElement() which returns a random element from an array.
       description: faker.lorem.sentence(),//Module to generate random texts and words.
       amount: faker.finance.amount()//Module to generate finance and money related entries.
